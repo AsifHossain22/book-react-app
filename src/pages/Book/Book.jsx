@@ -1,20 +1,21 @@
 import React, { use } from "react";
+import { FaStarHalfAlt } from "react-icons/fa";
 
 const Book = ({ book }) => {
   //   const data = use(bookPromise);
   //   console.log(data);
 
-  const { bookName, author, image } = book;
+  const { bookName, author, image, rating, category } = book;
 
   console.log(book);
   return (
-    <div className="card bg-base-100 w-96 shadow-sm">
-      <figure className="p-3">
-        <img src={image} alt="Shoes" />
+    <div className="card bg-base-100 w-96 shadow-sm border p-6">
+      <figure className="p-5 bg-gray-100 w-2/3 mx-auto">
+        <img src={image} alt="Shoes" className="h-[166px]" />
       </figure>
       <div className="card-body">
         <h2 className="card-title">
-          Card Title
+          {bookName}
           <div className="badge badge-secondary">NEW</div>
         </h2>
         <p>
@@ -22,8 +23,10 @@ const Book = ({ book }) => {
           title and actions parts
         </p>
         <div className="card-actions justify-end">
-          <div className="badge badge-outline">Fashion</div>
-          <div className="badge badge-outline">Products</div>
+          <div className="badge badge-outline">{category}</div>
+          <div className="badge badge-outline">
+            <FaStarHalfAlt /> {rating}
+          </div>
         </div>
       </div>
     </div>
