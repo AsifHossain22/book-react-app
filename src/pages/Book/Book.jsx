@@ -1,46 +1,37 @@
-import React, { use } from "react";
-import { FaStarHalfAlt } from "react-icons/fa";
+// import React, { use } from "react";
+import { FaRegStar } from "react-icons/fa";
+
 import { Link } from "react-router";
 
 const Book = ({ book }) => {
   //   const data = use(bookPromise);
   //   console.log(data);
 
-  const {
-    bookId,
-    bookName,
-    author,
-    image,
-    rating,
-    category,
-    tags,
-    yearOfPublishing,
-    publisher,
-  } = book;
+  const { bookId, bookName, author, image, rating, category, tags } = book;
 
   console.log(book);
   return (
-    <Link to={`/bookDetails/${bookId}`}>
-      <div className="card bg-base-100 w-96 shadow-sm border p-6">
-        <figure className="p-5 bg-gray-100 w-2/3 mx-auto">
-          <img src={image} alt="Shoes" className="h-[166px]" />
+    <Link to={`/bookDetails/${bookId}`} className="mx-auto">
+      <div className="card bg-base-100 w-96 border border-[#13131315] p-6">
+        <figure className="p-5 bg-gray-100 w-[326px] h-[230px] mx-auto">
+          <img src={image} alt="" className="h-[166px]" />
         </figure>
-        <div className="card-body">
-          <div className="flex justify-center gap-2.5">
+        <div className="card-body p-0 mt-6">
+          <div className="flex gap-2.5">
             {tags.map((tag) => (
-              <button>{tag}</button>
+              <button className="badge badge-soft badge-success">{tag}</button>
             ))}
           </div>
 
-          <h2 className="card-title">
-            {bookName}
-            <div className="badge badge-secondary">{yearOfPublishing}</div>
-          </h2>
-          <p>Published by : {publisher}</p>
-          <div className="card-actions justify-end">
-            <div className="badge badge-outline">{category}</div>
-            <div className="badge badge-outline">
-              <FaStarHalfAlt /> {rating}
+          <h2 className="card-title">{bookName}</h2>
+          <p className="border-b border-dashed border-[#13131315] pb-4">
+            By : {author}
+          </p>
+          <div className="card-actions justify-between pt-1">
+            <div className="border-none">{category}</div>
+            <div className="border-none flex items-center gap-1.5">
+              {rating}
+              <FaRegStar />
             </div>
           </div>
         </div>

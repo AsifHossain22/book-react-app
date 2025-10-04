@@ -5,18 +5,24 @@ const Navbar = () => {
   const links = (
     <>
       <Link to={"/"}>
-        <li className="mx-2">Home</li>
+        <li className="btn bg-transparent hover:bg-[#23BE0A] border border-[#23BE0A] text-[#23BE0A] hover:text-white p-3">
+          Home
+        </li>
       </Link>
-      <Link to="/about">
+      {/* <Link to="/about">
         <li className="mx-2">About</li>
-      </Link>
-      <li className="mx-2">Listed Books</li>
-      <li className="mx-2">Page to Read</li>
+      </Link> */}
+      <li className="btn shadow-none bg-transparent border-none p-3">
+        Listed Books
+      </li>
+      <li className="btn shadow-none bg-transparent border-none p-3">
+        Page to Read
+      </li>
     </>
   );
 
   return (
-    <div className="navbar bg-base-100 shadow-sm">
+    <div className="navbar bg-base-100 mt-5">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -38,18 +44,25 @@ const Navbar = () => {
           </div>
           <ul
             tabIndex={0}
-            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
+            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow items-start"
           >
             {links}
           </ul>
         </div>
-        <a className="btn btn-ghost text-xl">E-Book</a>
+        <a className="btn text-xl bg-transparent border-none shadow-none font-bold">
+          E-Book
+        </a>
       </div>
       <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal px-1">{links}</ul>
+        <ul className="menu menu-horizontal gap-6">{links}</ul>
       </div>
-      <div className="navbar-end">
-        <a className="btn">Button</a>
+      <div className="navbar-end gap-5">
+        <a className="btn bg-[#23BE0A] hover:bg-transparent border boder-[#23BE0A] hover:border-[#23BE0A] text-white hover:text-[#23BE0A]">
+          Sign In
+        </a>
+        <a className="btn bg-[#59C6D2] hover:bg-transparent border boder-[#59C6D2] hover:border-[#59C6D2] text-white hover:text-[#59C6D2]">
+          Sign Up
+        </a>
       </div>
     </div>
   );
