@@ -15,9 +15,11 @@ const Navbar = () => {
       <li className="btn shadow-none bg-transparent border-none p-3">
         Listed Books
       </li>
-      <li className="btn shadow-none bg-transparent border-none p-3">
-        Page to Read
-      </li>
+      <Link to={"/readList"}>
+        <li className="btn bg-transparent hover:bg-[#23BE0A] border border-[#23BE0A] text-[#23BE0A] hover:text-white p-3">
+          Page to Read
+        </li>
+      </Link>
     </>
   );
 
