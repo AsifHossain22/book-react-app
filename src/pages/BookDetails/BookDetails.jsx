@@ -1,6 +1,11 @@
 import React from "react";
 import { useLoaderData, useParams } from "react-router";
 import { addToDB } from "../../utility/addToDB";
+import Swal from "sweetalert2";
+import withReactContent from "sweetalert2-react-content";
+import { ToastContainer, toast } from "react-toastify";
+
+const MySwal = withReactContent(Swal);
 
 const BookDetails = () => {
   const { id } = useParams();
@@ -25,11 +30,15 @@ const BookDetails = () => {
   } = bookInfo;
 
   const handleMarkAsRead = (id) => {
+    MySwal.fire("SweetAlert2 is working!");
+
+    toast("Wow so easy!");
     addToDB(id);
   };
 
   return (
     <div className="p-6">
+      <ToastContainer />
       {/* BookInfo */}
       <div className="flex justify-center items-center p-6">
         {/* Image */}
