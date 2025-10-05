@@ -1,5 +1,6 @@
 import React from "react";
 import { useLoaderData, useParams } from "react-router";
+import { addToDB } from "../../utility/addToDB";
 
 const BookDetails = () => {
   const { id } = useParams();
@@ -22,6 +23,10 @@ const BookDetails = () => {
     totalPages,
     yearOfPublishing,
   } = bookInfo;
+
+  const handleMarkAsRead = (id) => {
+    addToDB(id);
+  };
 
   return (
     <div className="p-6">
@@ -74,11 +79,14 @@ const BookDetails = () => {
             </div>
           </div>
           <div className="flex gap-5 mt-5">
-            <button className="btn btn-accent bg-transparent hover:bg-red-600 hover:text-white border-[#13131330] shadow-none">
-              Read
+            <button
+              onClick={() => handleMarkAsRead(id)}
+              className="btn btn-accent bg-transparent hover:bg-red-600 hover:text-white border-[#13131330] shadow-none"
+            >
+              Mark As Read
             </button>
             <button className="btn btn-info text-white hover:text-[#131313] hover:bg-transparent hover:border-[#13131330] shadow-none">
-              Wishlist
+              Add To Wishlist
             </button>
           </div>
         </div>
